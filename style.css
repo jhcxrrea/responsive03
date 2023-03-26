@@ -9,6 +9,11 @@
 
   --bg-primary: #8E9AAF;
   --bg-secondary: #EFF1FF;
+
+  --ff-footer: 'Open Sans', sans-serif;
+  --fs-footer: 1.4rem;
+  --fc-footer: #4A4E69;
+  --fc-footer-link: #4355ce;
 }
 
 body{
@@ -32,7 +37,6 @@ body::before{
 
 img{
   width: 100%;
-
 }
 
 header{
@@ -71,7 +75,15 @@ main{
   padding-bottom: 6rem;
 }
 
-main p{
+.grid{
+  display: grid;
+  gap: 3.2rem;
+}
+.grid:nth-child(1){
+  display: none;
+}
+
+header p{
   font-family: 'Palanquin', sans-serif;
   font-weight: 400;
   font-size: 2rem;
@@ -80,6 +92,8 @@ main p{
   padding: 4px;
   text-align: center;
   animation: opacity 700ms;
+  letter-spacing: 2px;
+  margin-top: 5rem;
 }
 
 .container, .container2{
@@ -117,6 +131,82 @@ h2{
   transform: scale(1.1);
   opacity: 0.7;
   filter: blur(1px);
+}
+footer {
+  display: none;
+}
+
+@media (min-width: 768px){
+  .page{
+    display: flex;
+    max-width: 100%;
+  }
+  img{
+    max-width: 22rem;
+  }
+  body::before{
+    display: none;
+  }
+
+  main{
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    margin-left: 18rem;
+  }
+
+  .grid:nth-child(1){
+    display: grid;
+    gap: 3.2rem;
+  }
+  .grid:nth-child(2){
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  header::before{
+    content: '';
+    background-color: var(--bg-primary);
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 38rem;
+  }
+  header{
+    padding-top: 0;
+  }
+  header p{
+    width: 30rem;
+    color: white;
+  }
+  header img{
+    width: 22rem;
+    height: 16rem;
+    margin-top: 3.2rem;
+  }
+  header h1{
+    font-size: 4.8rem;
+    width: 38rem;
+  }
+  h2{
+    display: none;
+  }
+  footer{
+    display: block;
+    margin-left: 30rem;
+  }
+    
+  footer, footer a{
+    font-family: var(--ff-footer);
+    font-size: var(--fs-footer);
+    color: var(--fc-footer);
+    text-decoration: none;
+    bottom: 0;
+    text-align: center;
+  }
+    
+  footer a:hover{
+    color: var(--fc-footer-link);
+  }
+    
 }
 
 @keyframes topdown{
